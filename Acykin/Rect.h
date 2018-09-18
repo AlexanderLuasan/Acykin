@@ -4,6 +4,7 @@ class rect
 {
 public:
 	rect(int x, int y, int w, int h);
+	rect();
 	void display();
 	
 	//colision
