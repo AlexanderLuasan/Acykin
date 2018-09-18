@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-	cout << "Acykin a game" << endl;
+	cout << "Acykin" << endl;
 
 	controlStart();
 	system("pause");
