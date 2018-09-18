@@ -19,10 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\recttresting\recttresting\Rect.cpp" />
     <ClCompile Include="control.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\recttresting\recttresting\Rect.h" />
     <ClInclude Include="control.h" />
   </ItemGroup>
   <ItemGroup>
