@@ -20,10 +20,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="control.cpp" />
+    <ClCompile Include="display.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="control.h" />
+    <ClInclude Include="display.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
