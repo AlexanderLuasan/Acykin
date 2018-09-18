@@ -13,6 +13,15 @@
     <ClCompile Include="Rect.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="wall.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="model.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="player.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="control.h">
@@ -22,6 +31,15 @@
       <Filter>head</Filter>
     </ClInclude>
     <ClInclude Include="Rect.h">
+      <Filter>head</Filter>
+    </ClInclude>
+    <ClInclude Include="wall.h">
+      <Filter>head</Filter>
+    </ClInclude>
+    <ClInclude Include="model.h">
+      <Filter>head</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
       <Filter>head</Filter>
     </ClInclude>
   </ItemGroup>

@@ -8,6 +8,13 @@ rect::rect(int x, int y, int w, int h){
 	height = h;
 
 }
+rect::rect() {
+	xpos = 0;
+	ypos = 0;
+	width = 10;
+	height = 10;
+}
+
 void rect::display() {
 	cout << "ypos  :" << this->gety() << endl;
 	cout << "xpos  :" << this->getx() << endl;
