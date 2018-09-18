@@ -8,7 +8,6 @@ int main() {
 	cout << "Acykin a game" << endl;
 
 	controlStart();
-
 	system("pause");
 	return 0;
 }
