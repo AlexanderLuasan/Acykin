@@ -21,11 +21,13 @@
   <ItemGroup>
     <ClCompile Include="..\..\recttresting\recttresting\Rect.cpp" />
     <ClCompile Include="control.cpp" />
+    <ClCompile Include="display.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\recttresting\recttresting\Rect.h" />
     <ClInclude Include="control.h" />
+    <ClInclude Include="display.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
