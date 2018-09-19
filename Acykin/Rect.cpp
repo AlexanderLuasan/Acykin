@@ -49,7 +49,7 @@ bool rect::verticalOverLap(rect other) {
 	if ((this->top() < other.bottom()) & (this->bottom() > other.top())) {
 		return true;
 	}
-	else if ((this->top() > other.bottom() )&( this->bottom() < other.right())) {
+	else if ((this->top() > other.bottom() )&( this->bottom() < other.top())) {
 		return true;
 	}
 	else {

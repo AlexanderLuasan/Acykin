@@ -29,7 +29,7 @@ int controlStart() {
 
 
 
-	game Acykin(room(),player("Acykin",rect(400,300,20,20)));
+	game Acykin(room(),player("Acykin",rect(50,50,20,20)));
 
 
 	display screen(800,600);
@@ -56,11 +56,21 @@ int controlStart() {
 
 
 			Acykin.updateplayer();
+			vector<wall> todraw = Acykin.getCurrentWalls();
+			Acykin.hero.getHit();
+			for (int i = 0; i < todraw.size(); i++) {
+				if (Acykin.hero.getHit().colision(todraw[i].getColisionBox())) {
+					Acykin.hero.collision(todraw[i].getColisionBox(),"Wall");
+					Acykin.hero.getHit().display();
+					todraw[i].getColisionBox().display();
 
-			Acykin.hero.getDraw();
+				}
+			}
+
+
 
 			screen.clear();
-			vector<wall> todraw = Acykin.getCurrentWalls();
+			todraw = Acykin.getCurrentWalls();
 			for (int i = 0; i < todraw.size(); i++) {
 				screen.draw(todraw[i].getDrawingBox());
 			}
