@@ -40,3 +40,8 @@ vector<wall> game::getCurrentWalls()
 	return end;
 }
 
+void game::updateplayer()
+{
+	hero.update();
+}
+

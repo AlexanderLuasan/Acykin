@@ -52,6 +52,10 @@ int controlStart() {
 			cout << "ending" << endl;
 		}
 		else if (event.type == ALLEGRO_EVENT_TIMER) {
+
+
+
+			Acykin.updateplayer();
 			screen.clear();
 			vector<wall> todraw = Acykin.getCurrentWalls();
 			for (int i = 0; i < todraw.size(); i++) {
