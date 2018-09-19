@@ -11,7 +11,7 @@ class spritesheet
 public:
 	spritesheet();
 	spritesheet(const char * filename,int w,int h);
-	ALLEGRO_BITMAP *getFramce(int x, int y);
+	ALLEGRO_BITMAP *getFrame(int x, int y);
 
 
 private:
@@ -28,6 +28,7 @@ public:
 	plate();
 	plate(int width, int height);
 	void placeshape(ALLEGRO_BITMAP * shape, rect box);
+	ALLEGRO_BITMAP * getI();
 
 private:
 	ALLEGRO_BITMAP * image;

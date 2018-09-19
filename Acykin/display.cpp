@@ -15,6 +15,7 @@ ALLEGRO_DISPLAY* display::getScreen() {
 }
 
 void display::clear() {
+	al_set_target_bitmap(al_get_backbuffer(screen));
 	al_clear_to_color(al_map_rgb(255, 255, 255));
 }
 
@@ -30,4 +31,10 @@ void display::draw(rect shape) {
 void display::draw(ALLEGRO_BITMAP *image, rect box)
 {
 	al_draw_bitmap(image, box.getx(), box.gety(), 0);
+}
+
+void display::draw(plate bg)
+{
+	al_draw_bitmap(bg.getI(), 0, 0, 0);
+
 }
