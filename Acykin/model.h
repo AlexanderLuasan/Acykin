@@ -28,6 +28,7 @@ class game
 public:
 	game(room r , player h);
 	vector<wall> getCurrentWalls();
+	void updateplayer();
 
 private:
 	room currentroom;

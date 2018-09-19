@@ -8,7 +8,7 @@ public:
 	player(string n, rect box);
 	player();
 
-	//void update();
+	void update();
 	void setHorizonal(int direction);
 	void setVertical(int direction);
 
