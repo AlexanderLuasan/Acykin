@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="control.cpp" />
     <ClCompile Include="display.cpp" />
+    <ClCompile Include="imagecutter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="model.cpp" />
     <ClCompile Include="player.cpp" />
@@ -30,6 +31,7 @@
   <ItemGroup>
     <ClInclude Include="control.h" />
     <ClInclude Include="display.h" />
+    <ClInclude Include="imagecutter.h" />
     <ClInclude Include="model.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="Rect.h" />

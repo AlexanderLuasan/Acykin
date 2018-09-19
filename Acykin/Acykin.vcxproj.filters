@@ -22,6 +22,9 @@
     <ClCompile Include="player.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="imagecutter.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="control.h">
@@ -40,6 +43,9 @@
       <Filter>head</Filter>
     </ClInclude>
     <ClInclude Include="player.h">
+      <Filter>head</Filter>
+    </ClInclude>
+    <ClInclude Include="imagecutter.h">
       <Filter>head</Filter>
     </ClInclude>
   </ItemGroup>

@@ -26,3 +26,8 @@ void display::draw(rect shape) {
 	al_draw_rectangle(shape.getx(), shape.gety(), shape.right(), shape.bottom(),
 		al_map_rgb(0, 0, 0), 2.0);
 }
+
+void display::draw(ALLEGRO_BITMAP *image, rect box)
+{
+	al_draw_bitmap(image, box.getx(), box.gety(), 0);
+}

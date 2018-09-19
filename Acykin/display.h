@@ -10,6 +10,7 @@ public:
 	void clear();
 	void flip();
 	void draw(rect shape);
+	void draw(ALLEGRO_BITMAP *image, rect box);
 
 private:
 	ALLEGRO_DISPLAY * screen;
