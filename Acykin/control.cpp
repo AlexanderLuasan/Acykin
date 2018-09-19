@@ -3,9 +3,11 @@
 #include "display.h"
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_primitives.h>
+#include <allegro5/allegro_image.h>
 #include "Rect.h"
 #include "model.h"
 #include <vector>
+#include "imagecutter.h"
 using namespace std;
 
 
@@ -14,6 +16,7 @@ int controlStart() {
 	cout << "where the main game loop is" << endl;
 	al_init();
 	al_init_primitives_addon();
+	al_init_image_addon();
 	ALLEGRO_TIMER *timer;
 	timer = al_create_timer(1.0 / 30.0);
 	al_start_timer(timer);
@@ -41,6 +44,18 @@ int controlStart() {
 	al_register_event_source(queue, al_get_display_event_source(screen.getScreen()));
 	al_register_event_source(queue, al_get_keyboard_event_source());
 
+	//temp image testing area
+	plate background(800, 600);
+	spritesheet test1("castle_tileset_part1.png",32,32);
+	for (int r = 0; r < 10; r++) {
+		for (int c = 0; c < 10; c++) {
+			background.placeshape(test1.getFrame(c, r), rect(c * 32, r * 32, 32, 32));
+		}
+	}
+	
+
+
+
 	bool running = true;
 	while (running) {
 		ALLEGRO_EVENT event;
@@ -56,6 +71,10 @@ int controlStart() {
 
 
 			Acykin.updateplayer();
+
+			screen.clear();
+			screen.draw(background);
+
 			vector<wall> todraw = Acykin.getCurrentWalls();
 			Acykin.hero.getHit();
 			for (int i = 0; i < todraw.size(); i++) {
