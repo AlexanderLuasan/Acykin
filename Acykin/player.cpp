@@ -15,3 +15,25 @@ player::player() {
 	drawing = rect(0, 0, 10, 10);
 }
 
+void player::setHorizonal(int direction)
+{
+	if (direction == 0) {
+		xaim = 0;
+	}
+	else {
+		xaim = direction / abs(direction);
+	}
+	
+}
+
+void player::setVertical(int direction)
+{
+	if (direction == 0) {
+		yaim = 0;
+	}
+	else {
+		yaim = direction / abs(direction);
+	}
+
+}
+
