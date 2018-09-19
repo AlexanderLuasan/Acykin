@@ -2,7 +2,7 @@
 #include "control.h"
 #include "display.h"
 #include <allegro5/allegro.h>
-#include<allegro5/allegro_primitives.h>
+#include <allegro5/allegro_primitives.h>
 #include "Rect.h"
 #include "model.h"
 #include <vector>
@@ -19,17 +19,10 @@ int controlStart() {
 	al_start_timer(timer);
 
 
-	wall one(rect(20, 20, 50, 10));
-	wall two(rect(600, 400, 50, 10));
-	wall thr(rect(60, 32, 10, 50));
-	vector<wall> wallist;
-
-	wallist.push_back(one);
-	wallist.push_back(two);
-	wallist.push_back(thr);
 
 
-	game Acykin(room(wallist),player("Acykin",rect(400,300,20,20)));
+
+	game Acykin(room(),player("Acykin",rect(400,300,20,20)));
 
 
 	display screen(800,600);
