@@ -8,6 +8,5 @@ int main() {
 	cout << "Acykin" << endl;
 
 	controlStart();
-	system("pause");
 	return 0;
 }
