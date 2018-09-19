@@ -40,9 +40,32 @@ void player::setVertical(int direction)
 
 }
 
+void player::setJump(bool jumping)
+{
+	this->jumping = jumping;
+}
+
+rect player::getHit()
+{
+	return hitbox;
+}
+
+rect player::getDraw()
+{
+	return drawing;
+}
+
+void player::collision(rect other, string name)
+{
+
+	//no implmentation
+
+	cout << "colision" << endl;
+}
+
 void player::update() {
 	hitbox.setx(hitbox.getx() + xaim);
-	cout << hitbox.getx() << endl;
+	cout << hitbox.getx() << endl;//need movemnet programing
 
 
 }

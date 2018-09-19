@@ -32,7 +32,7 @@ int controlStart() {
 
 
 
-	game Acykin(room(),player("Acykin",rect(400,300,20,20)));
+	game Acykin(room(),player("Acykin",rect(50,50,20,20)));
 
 
 	display screen(800,600);
@@ -71,25 +71,61 @@ int controlStart() {
 
 
 			Acykin.updateplayer();
+
 			screen.clear();
 			screen.draw(background);
+
 			vector<wall> todraw = Acykin.getCurrentWalls();
+			Acykin.hero.getHit();
+			for (int i = 0; i < todraw.size(); i++) {
+				if (Acykin.hero.getHit().colision(todraw[i].getColisionBox())) {
+					Acykin.hero.collision(todraw[i].getColisionBox(),"Wall");
+					Acykin.hero.getHit().display();
+					todraw[i].getColisionBox().display();
+
+				}
+			}
+
+
+
+			screen.clear();
+			todraw = Acykin.getCurrentWalls();
 			for (int i = 0; i < todraw.size(); i++) {
 				screen.draw(todraw[i].getDrawingBox());
 			}
+			screen.draw(Acykin.hero.getDraw());
 			screen.flip();
 		}
 		
 
 		al_get_keyboard_state(&keyState);
-		if (al_key_down(&keyState, ALLEGRO_KEY_RIGHT)) {
-			cout << "right";
+
+		//left right
+		if ((al_key_down(&keyState, ALLEGRO_KEY_RIGHT))&(al_key_down(&keyState, ALLEGRO_KEY_LEFT))){
+			Acykin.hero.setHorizonal(0);
 		}
-		if (al_key_down(&keyState, ALLEGRO_KEY_LEFT)) {
-			cout << "left";
-		}{
+		else if (al_key_down(&keyState, ALLEGRO_KEY_RIGHT)) {
+			Acykin.hero.setHorizonal(1);
 		}
-		cout << endl;
+		else if (al_key_down(&keyState, ALLEGRO_KEY_LEFT)) {
+			Acykin.hero.setHorizonal(-1);
+		}
+		else {
+			Acykin.hero.setHorizonal(0);
+		}
+
+		if ((al_key_down(&keyState, ALLEGRO_KEY_UP))&(al_key_down(&keyState, ALLEGRO_KEY_DOWN))) {
+			Acykin.hero.setVertical(0);
+		}
+		else if (al_key_down(&keyState, ALLEGRO_KEY_DOWN)) {
+			Acykin.hero.setVertical(1);
+		}
+		else if (al_key_down(&keyState, ALLEGRO_KEY_UP)) {
+			Acykin.hero.setVertical(-1);
+		}
+		else {
+			Acykin.hero.setVertical(0);
+		}
 
 
 	}

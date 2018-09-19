@@ -32,6 +32,8 @@ public:
 
 private:
 	room currentroom;
+
+public:
 	player hero;
 };
 

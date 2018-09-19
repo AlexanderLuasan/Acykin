@@ -11,7 +11,10 @@ public:
 	void update();
 	void setHorizonal(int direction);
 	void setVertical(int direction);
-
+	void setJump(bool jumping);
+	rect getHit();
+	rect getDraw();
+	void collision(rect other, string name);//not implmented
 
 
 private:
@@ -20,5 +23,5 @@ private:
 	rect drawing;
 	int xaim;
 	int yaim;
-
+	bool jumping;
 };
