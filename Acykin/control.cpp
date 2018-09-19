@@ -18,6 +18,13 @@ int controlStart() {
 	timer = al_create_timer(1.0 / 30.0);
 	al_start_timer(timer);
 
+	al_install_keyboard();
+	ALLEGRO_KEYBOARD_STATE keyState;
+	al_install_mouse();
+
+	
+
+
 
 	wall one(rect(20, 20, 50, 10));
 	wall two(rect(600, 400, 50, 10));
@@ -39,7 +46,7 @@ int controlStart() {
 
 	al_register_event_source(queue, al_get_timer_event_source(timer));
 	al_register_event_source(queue, al_get_display_event_source(screen.getScreen()));
-
+	al_register_event_source(queue, al_get_keyboard_event_source());
 
 	bool running = true;
 	while (running) {
@@ -57,11 +64,20 @@ int controlStart() {
 			for (int i = 0; i < todraw.size(); i++) {
 				screen.draw(todraw[i].getDrawingBox());
 			}
-
-
 			screen.flip();
-		
 		}
+		
+
+		al_get_keyboard_state(&keyState);
+		if (al_key_down(&keyState, ALLEGRO_KEY_RIGHT)) {
+			cout << "right";
+		}
+		if (al_key_down(&keyState, ALLEGRO_KEY_LEFT)) {
+			cout << "left";
+		}
+		cout << endl;
+
+
 	}
 
 	return 0;
