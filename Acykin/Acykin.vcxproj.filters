@@ -22,6 +22,9 @@
     <ClCompile Include="player.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="imagecutter.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="control.h">
@@ -42,6 +45,9 @@
     <ClInclude Include="player.h">
       <Filter>head</Filter>
     </ClInclude>
+    <ClInclude Include="imagecutter.h">
+      <Filter>head</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -53,5 +59,19 @@
     <Filter Include="head">
       <UniqueIdentifier>{7e8164f4-8cbc-49ab-b3d3-5d1368a094f8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="resources">
+      <UniqueIdentifier>{816dbe48-86c1-41e7-bac0-4cf0cb7435bb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="castle_tileset_part1.png">
+      <Filter>resources</Filter>
+    </Image>
+    <Image Include="castle_tileset_part2.png">
+      <Filter>resources</Filter>
+    </Image>
+    <Image Include="castle_tileset_part3.png">
+      <Filter>resources</Filter>
+    </Image>
   </ItemGroup>
 </Project>
