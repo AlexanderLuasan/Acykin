@@ -25,6 +25,9 @@
     <ClCompile Include="imagecutter.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="xmlparser.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="control.h">
@@ -48,9 +51,15 @@
     <ClInclude Include="imagecutter.h">
       <Filter>head</Filter>
     </ClInclude>
+    <ClInclude Include="xmlparser.h">
+      <Filter>head</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="testingmap.tmx">
+      <Filter>resources</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="source">

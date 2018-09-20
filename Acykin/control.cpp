@@ -8,6 +8,9 @@
 #include "model.h"
 #include <vector>
 #include "imagecutter.h"
+#include <fstream>
+#include <ios>
+#include "xmlparser.h"
 using namespace std;
 
 
@@ -45,6 +48,14 @@ int controlStart() {
 	al_register_event_source(queue, al_get_keyboard_event_source());
 
 	//temp image testing area
+
+	xmlfile firstmap;
+	firstmap.setfile("\\testingmap.tmx");
+	cout << firstmap.nav().get("bg1").get("data").getleftover() << endl;
+	cout << firstmap.nav().get("set1").getleftover() << endl;
+	system("pause");
+
+
 	plate background(800, 600);
 	spritesheet test1("castle_tileset_part1.png",32,32);
 	for (int r = 0; r < 10; r++) {
