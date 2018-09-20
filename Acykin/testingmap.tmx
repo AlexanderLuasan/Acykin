@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextobjectid="1">
  <tileset firstgid="1" name="set1" tilewidth="32" tileheight="32" tilecount="672" columns="16">
-  <image source="castle_tileset_part1.png" width="512" height="1344"/>
+  <image source="castle_part1.png" width="512" height="1344"/>
  </tileset>
  <tileset firstgid="673" name="set2" tilewidth="32" tileheight="32" tilecount="336" columns="16">
-  <image source="castle_tileset_part2.png" width="512" height="672"/>
+  <image source="castle_part2.png" width="512" height="672"/>
  </tileset>
  <tileset firstgid="1009" name="set3" tilewidth="32" tileheight="32" tilecount="192" columns="16">
-  <image source="castle_tileset_part3.png" width="512" height="384"/>
+  <image source="castle_part3.png" width="512" height="384"/>
  </tileset>
  <layer name="bg1" width="32" height="24">
   <data encoding="csv">

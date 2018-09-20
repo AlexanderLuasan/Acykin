@@ -44,9 +44,9 @@
     <None Include="testingmap.tmx" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="castle_tileset_part1.png" />
-    <Image Include="castle_tileset_part2.png" />
-    <Image Include="castle_tileset_part3.png" />
+    <Image Include="castle_part1.png" />
+    <Image Include="castle_part2.png" />
+    <Image Include="castle_part3.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

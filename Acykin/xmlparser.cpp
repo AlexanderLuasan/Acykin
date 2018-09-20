@@ -4,6 +4,8 @@
 #include <allegro5/allegro.h>
 #include <iostream>
 #include <vector>
+
+
 using namespace std;
 
 
@@ -26,20 +28,28 @@ void xmlfile::setfile(const char * name)
 		cout << "unable to open" << endl;
 		exit(1);
 	}
-	string file;
+	vector<string> file;
 	string line;
-while (getline(infile, line)) {
-	file = file + line + "\n";
+	while (getline(infile, line)) {
+
+		while (line[0] == ' ') {
+			line = line.substr(1, line.size() - 1);
+		}
+		while ((line[line.size()] == ' ') | (line[line.size()] == '\n')) {
+			line = line.substr(1, line.size() - 1);
+		}
+
+		file.push_back(line);
+	}
+	file.erase(file.begin());
+	content = xmltag(file);
 }
-//remove first line
-file = file.substr(file.find(">") + 2, file.size());
-content = xmltag(file);
 
 
 
 
 
-}
+
 
 void xmlfile::tagprint()
 {
@@ -55,27 +65,122 @@ xmltag::xmltag()
 {
 }
 
-xmltag::xmltag(string data)
+xmltag::xmltag(vector<string> data)
 {
+	//cout << data[0] << endl;
+	leadingline = data[0];
+	tagtype = leadingline.substr(1,leadingline.find(" ")-1);
+	//cout << tagtype << endl;
+
+	content["name"] = tagtype;
+	while (true) {
+		int pair = leadingline.find("=");
+		if (pair != string::npos) {
+			int loc1 = pair;
+			int loc2 = pair;
+			while (leadingline[loc1] != ' ') {
+				loc1--;
+			}
+			while (((leadingline[loc2] != ' ') && (leadingline[loc2] != '>') && (leadingline[loc2] != '/'))&(loc2 < leadingline.length())) {
+				loc2++;
+			}
+			content[leadingline.substr(loc1 + 1, pair - loc1 - 1)] = leadingline.substr(pair + 2, loc2 - pair - 3);
+			ckeys.push_back(leadingline.substr(loc1 + 1, pair - loc1 - 1));
+			leadingline = leadingline.substr(pair + 1, leadingline.size() - (pair + 1));
+		}
+		else {
+			break;
+		}
+	}
+	/*
+	for (int i = 0; i < ckeys.size(); i++) {
+		cout << ckeys[i] << "=>" << content[ckeys[i]] << endl;
+	}
+	*/
+	int indents = 0;
+	int index = 0;
+	while (true) {
+
+		if ((data[index].find(tagtype) != string::npos) && (data[index].find("/") != string::npos)) {
+			if (indents < 2) {
+				break;
+			}
+		}
+		else if (data[index].find(tagtype)!=string::npos) {
+			indents += 1;
+		}
+
+		if ((data[index][0] == '<')&(index!=0)) {
+			vector<string> newdata;
+			for (int i = index; i < data.size(); i++) {
+				newdata.push_back(data[i]);
+			}
+			xmltag newtag(newdata);
+			keys.push_back(newtag.getname());
+			values.push_back(newtag);
+			index += newtag.getendindex();
+		}
+		if (index >= data.size()-1) {
+			break;
+		}
+		raw = raw + string(data[index]);
+
+		index += 1;
+	}
+	endindex = index;
+
+
+
+}
+/*
+	bool base = false;
 	//setfirst line to my name
 	int blade = data.find(">");
 	string tagline = data.substr(0, blade + 1);
-	name = tagline;
+	leadingline = tagline;
 	blade = tagline.find(" ");
-	string tagtype = "</" + tagline.substr(0 + 1, blade - 1) + ">";
+	string tagtype = "</" + name + ">";
 	//remove open and close of my tag
+	string cutdata;
+	if (data.find(tagtype) != string::npos) {
+		cutdata = data.substr(data.find(">") + 2, data.find(tagtype) - (data.find(">") + 2));
+	}
+	else {
+		cutdata = data;
+		base = true;
+	}
 
+	content["name"] = tagline.substr(0 + 1, blade - 1);
+	cout << content["name"] << endl;
+	while (true) {
+		int pair = leadingline.find("=");
+		if (pair != string::npos) {
+			int loc1 = pair;
+			int loc2 = pair;
+			while (leadingline[loc1] != ' ') {
+				loc1--;
+			}
+			while (((leadingline[loc2] != ' ')&&(leadingline[loc2] != '>'))&(loc2 < leadingline.length())) {
+				loc2++;
+			}
 
+			content[leadingline.substr(loc1 + 1, pair - loc1 - 1)] = leadingline.substr(pair + 2, loc2 - pair -3);
 
-	string cutdata = data.substr(data.find(">") + 2, data.find(tagtype) - (data.find(">") + 2));
+			leadingline = leadingline.substr(pair+1,leadingline.size()-(pair+1));
 
-
+			
+		}
+		else {
+			break;
+		}
+	}
+	cout << content["name"] << endl;
 
 
 
 	//find next tag create xml object is no more tags save base data and end
 	int index = 0;
-	while (true) {
+	while (true&!base) {
 		blade = cutdata.find(">");
 		if (blade != string::npos) {
 			tagline = cutdata.substr(0, blade + 1);
@@ -100,17 +205,17 @@ xmltag::xmltag(string data)
 				cutdata = cutdata.substr(cutdata.find(tagtype) + tagtype.size(), cutdata.size() - cutdata.find(tagtype) - tagtype.size());
 			}
 			else {
-				leftover = cutdata;
-				break;
+				xmltag newtag(cutdata);
+				values.push_back(newtag);
+				keys.push_back(newtag.getname());
+				cutdata = "                 ";
 			}
 			//makenewtag
-
+			leftover = cutdata;
+			cout << this->getname() << leftover << endl;
+			break;
 			//get it to tell me its name
 			//setup key value relation
-		}
-		else {
-			leftover = cutdata;
-			break;
 		}
 	}
 
@@ -122,37 +227,16 @@ xmltag::xmltag(string data)
 
 
 }
-
+*/
 string xmltag::getname()
 {
-
-	int blade;
-	string end;
-	blade = name.find("name=");
-	if (blade != string::npos) {
-		end = name.substr(blade + 6, 15);
-		blade = end.find('"');
-		if (blade != string::npos){
-			end = end.substr(0, blade);
-
-			return end;
-		}
-		
-	}
-	else {
-		blade = name.find("<")+1;
-		end = name.substr(blade, name.size() - blade);
-		blade = end.find(" ");
-		end = end.substr(0, blade);
-		return end;
-	}
-
-	return name;
+	string end = content["name"];
+	return end;
 }
 
 string xmltag::getleftover()
 {
-	return leftover;
+	return raw;
 }
 
 xmltag xmltag::get(string name)
@@ -162,4 +246,25 @@ xmltag xmltag::get(string name)
 			return values[i];
 		}
 	}
+}
+
+string xmltag::head(string name)
+{
+	return content[name];
+}
+
+void xmltag::options()
+{
+	for (int i = 0; i < keys.size(); i++) {
+		cout << i <<keys[i] << endl;
+	}
+	for (map<string, string>::iterator it = content.begin(); it != content.end(); ++it)
+		cout << it->first << " => " << it->second << '\n';
+
+
+}
+
+int xmltag::getendindex()
+{
+	return endindex;
 }

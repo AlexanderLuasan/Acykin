@@ -9,17 +9,23 @@ class xmltag
 {
 public:
 	xmltag();
-	xmltag(string data);
+	xmltag(vector<string> data);
 	string getname();
 	string getleftover();
 	xmltag get(string name);
+	string head(string name);
+	void options();
+	int getendindex();
 
 private:
 	vector<string> keys;
 	vector<xmltag> values;
 	map<string, string> content;
-	string leftover;
-	string name;
+	vector<string> ckeys;
+	string leadingline;
+	string tagtype;
+	string raw;
+	int endindex;
 };
 
 

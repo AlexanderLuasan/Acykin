@@ -51,13 +51,15 @@ int controlStart() {
 
 	xmlfile firstmap;
 	firstmap.setfile("\\testingmap.tmx");
-	cout << firstmap.nav().get("bg1").get("data").getleftover() << endl;
-	cout << firstmap.nav().get("set1").getleftover() << endl;
+	firstmap.nav().get("set1").get("image").options();
+	cout << firstmap.nav().get("bg1").get("data").getleftover()<<endl;
+
+
 	system("pause");
 
 
 	plate background(800, 600);
-	spritesheet test1("castle_tileset_part1.png",32,32);
+	spritesheet test1("castle_part1.png",32,32);
 	for (int r = 0; r < 10; r++) {
 		for (int c = 0; c < 10; c++) {
 			background.placeshape(test1.getFrame(c, r), rect(c * 32, r * 32, 32, 32));

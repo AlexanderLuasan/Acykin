@@ -73,13 +73,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="castle_tileset_part1.png">
+    <Image Include="castle_part1.png">
       <Filter>resources</Filter>
     </Image>
-    <Image Include="castle_tileset_part2.png">
+    <Image Include="castle_part2.png">
       <Filter>resources</Filter>
     </Image>
-    <Image Include="castle_tileset_part3.png">
+    <Image Include="castle_part3.png">
       <Filter>resources</Filter>
     </Image>
   </ItemGroup>
