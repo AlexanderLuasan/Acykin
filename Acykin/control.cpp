@@ -72,8 +72,7 @@ int controlStart() {
 
 			Acykin.updateplayer();
 
-			screen.clear();
-			screen.draw(background);
+			
 
 			vector<wall> todraw = Acykin.getCurrentWalls();
 			Acykin.hero.getHit();
@@ -89,6 +88,8 @@ int controlStart() {
 
 
 			screen.clear();
+			screen.draw(background);
+			
 			todraw = Acykin.getCurrentWalls();
 			for (int i = 0; i < todraw.size(); i++) {
 				screen.draw(todraw[i].getDrawingBox());
