@@ -53,6 +53,9 @@ int controlStart() {
 	firstmap.setfile("\\testingmap.tmx");
 	firstmap.nav().get("set1").get("image").options();
 	cout << firstmap.nav().get("bg1").get("data").getleftover() << endl << endl;
+	firstmap.nav().get("colision").get("wall6").get("properties>").get("test").options();
+	
+	cout << endl << endl;
 	vector<string> list = firstmap.nav().get("colision").getkeys();
 
 	for (int i = 0; i < list.size(); i++) {
@@ -69,7 +72,7 @@ int controlStart() {
 			background.placeshape(test1.getFrame(c, r), rect(c * 32, r * 32, 32, 32));
 		}
 	}
-	
+	//image testing area end
 
 
 
