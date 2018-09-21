@@ -6,16 +6,16 @@
 class display
 {
 public:
-	display(int sizex, int sizey);
-	ALLEGRO_DISPLAY *getScreen();
-	void clear();
-	void flip();
-	void draw(rect shape);
-	void draw(ALLEGRO_BITMAP *image, rect box);
-	void draw(plate bg);
+	display(int sizex, int sizey);//start a screen with given size
+	ALLEGRO_DISPLAY *getScreen();//return display pointer
+	void clear(); //set screen to white
+	void flip(); // change display to buffer
+	void draw(rect shape); // draw a rect as black box
+	void draw(ALLEGRO_BITMAP *image, rect box); //draw a bitmap image in rect
+	void draw(plate bg);//draw a full plate backgounrd
 
 private:
-	ALLEGRO_DISPLAY * screen;
+	ALLEGRO_DISPLAY * screen; 
 	
 
 };
