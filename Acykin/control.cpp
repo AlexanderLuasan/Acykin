@@ -52,9 +52,13 @@ int controlStart() {
 	xmlfile firstmap;
 	firstmap.setfile("\\testingmap.tmx");
 	firstmap.nav().get("set1").get("image").options();
-	cout << firstmap.nav().get("bg1").get("data").getleftover()<<endl;
+	cout << firstmap.nav().get("bg1").get("data").getleftover() << endl << endl;
+	vector<string> list = firstmap.nav().get("colision").getkeys();
 
-
+	for (int i = 0; i < list.size(); i++) {
+		firstmap.nav().get("colision").get(list[i]).options();
+		cout << endl;
+	}
 	system("pause");
 
 

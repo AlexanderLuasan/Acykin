@@ -16,6 +16,9 @@ public:
 	string head(string name);
 	void options();
 	int getendindex();
+	vector<string> getkeys();
+	vector<string> getckeys();
+	void nameappend(string add);
 
 private:
 	vector<string> keys;

@@ -43,6 +43,7 @@ void xmlfile::setfile(const char * name)
 	}
 	file.erase(file.begin());
 	content = xmltag(file);
+
 }
 
 
@@ -73,6 +74,7 @@ xmltag::xmltag(vector<string> data)
 	//cout << tagtype << endl;
 
 	content["name"] = tagtype;
+	content["id"] = "";
 	while (true) {
 		int pair = leadingline.find("=");
 		if (pair != string::npos) {
@@ -92,6 +94,7 @@ xmltag::xmltag(vector<string> data)
 			break;
 		}
 	}
+	content["name"] += content["id"];
 	/*
 	for (int i = 0; i < ckeys.size(); i++) {
 		cout << ckeys[i] << "=>" << content[ckeys[i]] << endl;
@@ -267,4 +270,19 @@ void xmltag::options()
 int xmltag::getendindex()
 {
 	return endindex;
+}
+
+vector<string> xmltag::getkeys()
+{
+	return keys;
+}
+
+vector<string> xmltag::getckeys()
+{
+	return ckeys;
+}
+
+void xmltag::nameappend(string add)
+{
+	content["name"] = content["name"] + add;
 }
