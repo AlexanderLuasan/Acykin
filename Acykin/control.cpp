@@ -32,7 +32,9 @@ int controlStart() {
 
 
 
-	game Acykin(room(),player("Acykin",rect(50,50,20,20)));
+	game Acykin(room(), player("Acykin",rect(50,50,20,20)));
+	
+
 
 
 	display screen(800,600);

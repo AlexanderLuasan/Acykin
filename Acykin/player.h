@@ -24,4 +24,8 @@ private:
 	int xaim;
 	int yaim;
 	bool jumping;
+	int velx = 0;
+	int vely = 0;
+	
+
 };
