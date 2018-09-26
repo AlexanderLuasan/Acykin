@@ -27,6 +27,7 @@
     <ClCompile Include="player.cpp" />
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="wall.cpp" />
+    <ClCompile Include="xmlparser.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="control.h" />
@@ -36,14 +37,16 @@
     <ClInclude Include="player.h" />
     <ClInclude Include="Rect.h" />
     <ClInclude Include="wall.h" />
+    <ClInclude Include="xmlparser.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="testingmap.tmx" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="castle_tileset_part1.png" />
-    <Image Include="castle_tileset_part2.png" />
-    <Image Include="castle_tileset_part3.png" />
+    <Image Include="castle_part1.png" />
+    <Image Include="castle_part2.png" />
+    <Image Include="castle_part3.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

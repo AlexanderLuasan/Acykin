@@ -8,6 +8,9 @@
 #include "model.h"
 #include <vector>
 #include "imagecutter.h"
+#include <fstream>
+#include <ios>
+#include "xmlparser.h"
 using namespace std;
 
 
@@ -45,14 +48,31 @@ int controlStart() {
 	al_register_event_source(queue, al_get_keyboard_event_source());
 
 	//temp image testing area
+
+	xmlfile firstmap;
+	firstmap.setfile("\\testingmap.tmx");
+	firstmap.nav().get("set1").get("image").options();
+	cout << firstmap.nav().get("bg1").get("data").getleftover() << endl << endl;
+	firstmap.nav().get("colision").get("wall6").get("properties>").get("test").options();
+	
+	cout << endl << endl;
+	vector<string> list = firstmap.nav().get("colision").getkeys();
+
+	for (int i = 0; i < list.size(); i++) {
+		firstmap.nav().get("colision").get(list[i]).options();
+		cout << endl;
+	}
+	system("pause");
+
+
 	plate background(800, 600);
-	spritesheet test1("castle_tileset_part1.png",32,32);
+	spritesheet test1("castle_part1.png",32,32);
 	for (int r = 0; r < 10; r++) {
 		for (int c = 0; c < 10; c++) {
 			background.placeshape(test1.getFrame(c, r), rect(c * 32, r * 32, 32, 32));
 		}
 	}
-	
+	//image testing area end
 
 
 
